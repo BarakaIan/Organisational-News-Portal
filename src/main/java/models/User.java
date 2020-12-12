@@ -3,6 +3,13 @@ package models;
 import java.util.Objects;
 
 public class User {
+    private int id;
+    private String name;
+    private String bio;
+    private String position;
+    private String role;
+    private int departmentId;
+
     public User(String name, String bio, String position, String role) {
         this.name = name;
         this.bio = bio;
@@ -17,13 +24,6 @@ public class User {
         this.role = role;
         this.departmentId = departmentId;
     }
-
-    private int id;
-    private String name;
-    private String bio;
-    private String position;
-    private String role;
-    private int departmentId;
 
     @Override
     public boolean equals(Object o) {
