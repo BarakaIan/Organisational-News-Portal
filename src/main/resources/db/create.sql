@@ -1,5 +1,5 @@
 CREATE DATABASE organisational;
-\c organisation;
+\c organisational;
 
 CREATE TABLE users(id serial PRIMARY KEY, name varchar, bio varchar, position varchar, role varchar, departmentid int);
 
