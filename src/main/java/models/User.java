@@ -8,13 +8,14 @@ public class User {
     private String bio;
     private String position;
     private String role;
-    private int departmentId;
+    private Integer departmentId;
 
     public User(String name, String bio, String position, String role) {
         this.name = name;
         this.bio = bio;
         this.position = position;
         this.role = role;
+        this.departmentId = null;
     }
 
     public User(String name, String bio, String position, String role, int departmentId) {
@@ -83,7 +84,7 @@ public class User {
         this.role = role;
     }
 
-    public int getDepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 

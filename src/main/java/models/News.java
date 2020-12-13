@@ -6,7 +6,7 @@ public class News {
     private int id;
     private String title;
     private String content;
-    private int departmentId;
+    private Integer departmentId;
 
     @Override
     public boolean equals(Object o) {
@@ -48,7 +48,7 @@ public class News {
         this.content = content;
     }
 
-    public int getDepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 
