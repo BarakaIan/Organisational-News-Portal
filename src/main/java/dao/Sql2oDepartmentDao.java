@@ -1,6 +1,7 @@
 package dao;
 
 import models.Department;
+import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -32,7 +33,18 @@ public class Sql2oDepartmentDao implements DepartmentDao {
         String sql = "SELECT * FROM departments";
         try(Connection con = sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Department.class);
-        }    }
+        }
+    }
+
+    @Override
+    public List<User> getDepartmentUsers(Department department) {
+        String sql = "SELECT * FROM users WHERE departmentid=:id";
+        try(Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id",department.getId())
+                    .executeAndFetch(User.class);
+        }
+    }
 
     @Override
     public Department findById(int id) {
