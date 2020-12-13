@@ -92,6 +92,6 @@ public class UserTest {
     }
 
     public User setupAltUser (){
-        return new User("emile","student learning java","student","enjoy",36);
+        return new User("emile","student learning java","student","enjoy");
     }
 }

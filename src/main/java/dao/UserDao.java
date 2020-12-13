@@ -7,7 +7,6 @@ import java.util.List;
 public interface UserDao {
     //create
     void add(User user);
-    //void addUserToDepartment(User user, Department department);
 
     //read
     List<User> getAll();
@@ -16,7 +15,7 @@ public interface UserDao {
     User findById(int id);
 
     //update
-    //void update(int id, String name, String bio);
+    void update(int id, String name, String bio,String position,String role,int departmentId);
 
     //delete
     void deleteById(int id);
