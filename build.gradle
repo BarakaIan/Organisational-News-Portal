@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.emile.organisational-news-portal'
@@ -21,3 +22,6 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
 
 }
+
+apply plugin: 'java'
+applicationName = 'emileorganisational'
