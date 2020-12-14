@@ -15,7 +15,7 @@ Organisational api is an application that uses restful routing to create an api 
 * CREATE TABLE departments(id serial PRIMARY KEY, name varchar, bio varchar);
 * CREATE DATABASE organisational_test WITH TEMPLATE organisational;
 ## Known Bugs
-None so far.
+Deployment.
 ## Technologies Used
 * IntelliJ IDEA
 * Java
