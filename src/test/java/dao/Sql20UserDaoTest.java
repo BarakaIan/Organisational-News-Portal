@@ -23,6 +23,7 @@ public class Sql20UserDaoTest {
 
     @After
     public void tearDown() throws Exception {
+        userDao.clearAll();
         conn.close();
     }
 
@@ -33,12 +34,48 @@ public class Sql20UserDaoTest {
         assertEquals(userDao.getAll().get(0),newUser);
     }
 
+    @Test
+    public void addingUserSetsId() throws Exception {
+        User testUser = setupUser();
+        int originalUserId = testUser.getId();
+        userDao.add(testUser);
+        assertNotEquals(originalUserId,testUser.getId());
+    }
+
+    @Test
+    public void addedUsersAreReturnedFromGetAll() throws Exception {
+        User newUser = new User("emile","student learning java","student","enjoy",36);
+        userDao.add(newUser);
+        assertEquals(1,userDao.getAll().size());
+    }
+
+    @Test
+    public void noUsersReturnsEmptyList() throws Exception {
+        assertEquals(0, userDao.getAll().size());
+    }
+
+    @Test
+    public void deleteByIdDeletesCorrectUser() throws Exception {
+        User testUser = setupUser();
+        userDao.add(testUser);
+        userDao.deleteById(testUser.getId());
+        assertEquals(0, userDao.getAll().size());
+    }
+
+    @Test
+    public void clearAll() throws Exception {
+        User testUser = setupUser();
+        User otherUser = setupAltUser();
+        userDao.clearAll();
+        assertEquals(0, userDao.getAll().size());
+    }
+
     //Helpers
     public User setupUser (){
         return new User("emile","student learning java","student","enjoy",36);
     }
 
-//    public User setupAltUser (){
-//        return new User("emile","student learning java","student","enjoy");
-//    }
+    public User setupAltUser (){
+        return new User("emile","student learning java","student","enjoy");
+    }
 }

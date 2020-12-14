@@ -29,7 +29,8 @@ public class NewsTest {
     @Test
     public void getDepartmentIdReturnsCorrectly(){
         News newNews = setupNews();
-        assertEquals(36,newNews.getDepartmentId());
+        Integer expected = 36;
+        assertEquals(expected,newNews.getDepartmentId());
     }
     @Test
     public void setTitleReturnsCorrectly(){
@@ -50,7 +51,7 @@ public class NewsTest {
     @Test
     public void setDepartmentIdReturnsCorrectly(){
         News newNews = setupNews();
-        int initial=newNews.getDepartmentId();
+        Integer initial=newNews.getDepartmentId();
         newNews.setDepartmentId(37);
         assertNotEquals(initial,newNews.getDepartmentId());
     }

@@ -44,7 +44,8 @@ public class UserTest {
     @Test
     public void getDepartmentIdReturnsCorrectly(){
         User newUser = setupUser();
-        assertEquals(36,newUser.getDepartmentId());
+        Integer expected = 36;
+        assertEquals(expected,newUser.getDepartmentId());
     }
     @Test
     public void setNameReturnsCorrectly(){
@@ -81,7 +82,7 @@ public class UserTest {
     @Test
     public void setDepartmentIdReturnsCorrectly(){
         User newUser = setupUser();
-        int initial=newUser.getDepartmentId();
+        Integer initial=newUser.getDepartmentId();
         newUser.setDepartmentId(37);
         assertNotEquals(initial,newUser.getDepartmentId());
     }
