@@ -75,7 +75,7 @@ public class App {
 
         get("/users", "application/json", (req, res) -> { //accept a request in format JSON from an app
             res.type("application/json");
-            if (userDao.getAll() == null){
+            if (userDao.getAll().size() == 0){
                 return "{\"message\":\"I'm sorry, but no users yet added.\"}";
             }else{
                 return gson.toJson(userDao.getAll());//send it back to be displayed
@@ -84,7 +84,7 @@ public class App {
 
         get("/news", "application/json", (req, res) -> { //accept a request in format JSON from an app
             res.type("application/json");
-            if (newsDao.getAll() == null){
+            if (newsDao.getAll().size() == 0){
                 return "{\"message\":\"I'm sorry, but no news yet added.\"}";
             } else{
                 return gson.toJson(newsDao.getAll());//send it back to be displayed
