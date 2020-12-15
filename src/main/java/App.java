@@ -89,6 +89,10 @@ public class App {
                 return gson.toJson(userDao.getAll());//send it back to be displayed
             }
         });
+        get("/", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            res.type("application/json");
+            return "{\"Add user\":\"/users/new\",\"Add department\":\"/departments/new\",\"Post news\":\"/news/post\",\"show users\":\"/users\",\"show departments\":\"/departments\",\"show news\":\"/news\",\"show department news\":\"/departments/:id/news\",\"show department users\":\"/departments/:id/users\"}";
+        });
 
         get("/news", "application/json", (req, res) -> { //accept a request in format JSON from an app
             res.type("application/json");
@@ -125,7 +129,11 @@ public class App {
 
         get("/departments", "application/json", (req, res) -> { //accept a request in format JSON from an app
             res.type("application/json");
-            return gson.toJson(departmentDao.getAll());//send it back to be displayed
+            if (departmentDao.getAll().size() == 0){
+                return "{\"message\":\"I'm sorry, but no departments yet added.\"}";
+            } else{
+                return gson.toJson(departmentDao.getAll());//send it back to be displayed
+            }
         });
 
         get("/departments/:id", "application/json", (req, res) -> {
